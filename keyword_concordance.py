@@ -32,15 +32,20 @@ def context(corpus, target_word, construction, n_max):
     random.shuffle(sentences)
     out_sent = []
     for i in range(int(float(n_max))):
-        out_sent.append(sentences[i].text)
-    
+        try:
+            out_sent.append(sentences[i].text)
+            print(sentences[i].text)
+        except IndexError:
+            break
     matcher.remove(f'{target_word}_{construction}')
     return out_sent
     
 
 
 if __name__ == '__main__':
-    print(context(corpus, target_word, construction, max_n))
+    context(corpus, target_word, construction, max_n)
+
+
 
 """command:
 python keyword_concordance.py off_news_2014_corpus.spacy off prep 10"""

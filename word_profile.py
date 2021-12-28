@@ -25,6 +25,7 @@ def get_profile(target_word, file):
             # splits each line at the tab
             word_a, word_b = line.split('\t')
             # if word a is the target word:
+            word_b = word_b.rstrip('\n')
             if (word_a == target_word):
                 # updates/
                 try:
@@ -41,10 +42,13 @@ def get_profile(target_word, file):
                     collocations[word_a] = 1
         # from the pair-word count and the file, returns a tuple in the format (paired word, log_dice, freq)
         results = get_logdice_and_freq(collocations, tsv)
+        print(results)
         # creates a logdice-sorted version of the results
         logdice_sort = sorted(results, key=lambda x: x[1], reverse=True)
+        print(f'logdice_sort\n{logdice_sort}')
         # creates a frequency-sorted version of the results
         frq_sort = sorted(results, key=lambda x: x[2], reverse=True)
+        print(f'frq_sort:\n{frq_sort}')
         
 
 def dict_to_tup(dct):
@@ -53,11 +57,8 @@ def dict_to_tup(dct):
     outtup = []
     for key in dct.keys():
         keytup = [key]
-        if dct[key] is Iterable:
-            for item in dct[key]:
-                keytup.append(item)
-        else:
-            keytup.append(dct[key])
+        for item in dct[key]:
+            keytup.append(item)
         outtup.append(tuple(keytup))
     return tuple(outtup)
 
@@ -65,6 +66,7 @@ def dict_to_tup(dct):
 def calc_logdice(f_xy, f_x, f_y):
     """ calculates the log-dice of a word """
     logDice = 14 + math.log((2*f_xy)/(f_x+f_y), 2)
+    logDice = round(logDice, 4)
     return logDice
 
 def get_logdice_and_freq(collocation_dict, file):
@@ -85,9 +87,9 @@ def get_logdice_and_freq(collocation_dict, file):
     return ld_frq_tup
 
 
-files_n_words = {'off': ('a', 'b'),
-'was': ('a', 'b'),
-'refugee': ('a', 'b')}
+files_n_words = {'off': ('off_profile_prep_news_2014_data.tsv', 'off_profile_prep_news_2020_data.tsv', 'off_profile_prt_news_2014_data.tsv', 'off_profile_prt_news_2020_data.tsv'),
+# 'was': ('a', 'b'),
+'refugee': ('refugee_profile_amod_news_2007_data.tsv', 'refugee_profile_nmod_news_2007_data.tsv')}
 
 def main():
     for word in files_n_words.keys():
