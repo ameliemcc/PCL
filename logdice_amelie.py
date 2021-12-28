@@ -14,7 +14,7 @@ def getDice(X, Y, coOc):
     result = (2*coOc)/(X+Y)
     return result
 
-print(getDice(numberOfX,numberOfY, cooccurrences))
+# print(getDice(numberOfX,numberOfY, cooccurrences))
 
 
 def getLogDice():
@@ -22,4 +22,4 @@ def getLogDice():
     logDice = 14 + math.log(dice, 2)
     return logDice
 
-print(getLogDice())
+# print(getLogDice())
