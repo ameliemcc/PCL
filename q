@@ -1,0 +1,29 @@
+update incl. folders
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	new file:   part_1/extract_constructions.py
+#	new file:   part_1/off_news_2014_corpus.spacy
+#	new file:   part_1/off_news_2014_corpus.txt
+#	new file:   part_1/off_news_2020_corpus.spacy
+#	new file:   part_1/off_news_2020_corpus.txt
+#	new file:   part_1/parse_corpus.py
+#	new file:   part_1/refugee_news_2007_corpus.spacy
+#	new file:   part_1/refugee_news_2007_corpus.txt
+#	renamed:    keyword_concordance.py -> part_2/keyword_concordance.py
+#	new file:   part_2/logdice_amelie.py
+#	new file:   part_2/off_news_2014_corpus.spacy
+#	new file:   part_2/off_news_2020_corpus.spacy
+#	new file:   part_2/off_profile_prep_news_2014_data.tsv
+#	new file:   part_2/off_profile_prep_news_2020_data.tsv
+#	new file:   part_2/off_profile_prt_news_2014_data.tsv
+#	new file:   part_2/off_profile_prt_news_2020_data.tsv
+#	new file:   part_2/refugee_news_2007_corpus.spacy
+#	new file:   part_2/refugee_profile_amod_news_2007_data.tsv
+#	new file:   part_2/refugee_profile_nmod_news_2007_data.tsv
+#	renamed:    word_profile.py -> part_2/word_profile.py
+#
