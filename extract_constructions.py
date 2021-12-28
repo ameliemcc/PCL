@@ -56,15 +56,15 @@ def extraction_automation():
     pobj = [ {'RIGHT_ID': 'ref_nmod', 'RIGHT_ATTRS': {'DEP': 'pobj'}},
             {'LEFT_ID': 'ref_nmod', 'REL_OP': '<<', 'RIGHT_ID': 'nmod_head', 'RIGHT_ATTRS':{'IS_ALPHA': True}}]
 
-    # aux = [ {'RIGHT_ID': 'be_aux', 'RIGHT_ATTRS': {'DEP': 'aux'}},
-    #         {'LEFT_ID': 'be_aux', 'REL_OP': '<', 'RIGHT_ID': '', 'RIGHT_ATTRS':{'IS_ALPHA': True}}]
-    # auxpass = [ {'RIGHT_ID': 'be_auxpass', 'RIGHT_ATTRS': {'DEP': 'auxpass'}},
-            # {'LEFT_ID': 'be_auxpass', 'REL_OP': '<', 'RIGHT_ID': '', 'RIGHT_ATTRS':{'IS_ALPHA': True}}]
+    aux = [{'RIGHT_ID': 'be_aux', 'RIGHT_ATTRS': {'DEP': 'aux'}},
+            {'LEFT_ID': 'be_aux', 'REL_OP': '<', 'RIGHT_ID': '', 'RIGHT_ATTRS':{'IS_ALPHA': True}}]
+    auxpass = [{'RIGHT_ID': 'be_auxpass', 'RIGHT_ATTRS': {'DEP': 'auxpass'}},
+              {'LEFT_ID': 'be_auxpass', 'REL_OP': '<', 'RIGHT_ID': '', 'RIGHT_ATTRS':{'IS_ALPHA': True}}]
     # dependencies = [{'prep':prep, 'prt':prt},{'amod': amod, 'nmod':nmod}, {'aux':aux, 'auxpass':auxpass}]
     files = (
-        (('off_news_2014_corpus.spacy', 'off_news_2020_corpus.spacy'),( prep,prt ))
-        ,(('refugee_news_2007_corpus.spacy', ''), (amod, nmod))
-        # ,(('was_news_20xx_corpus.spacy', 'file2'),(aux, auxpass))
+        (('off_news_2014_corpus.spacy', 'off_news_2020_corpus.spacy'), (prep, prt)),
+        (('refugee_news_2007_corpus.spacy', 'refugee_news_2013_corpus.spacy', 'refugee_news_2017_corpus.spacy'), (amod, nmod)),
+        (('was_news_2020_corpus.spacy', 'was_web_2020_corpus.spacy'), (aux, auxpass))
     )
 
     for wordtuple in files:
