@@ -15,6 +15,7 @@ main
             calc_logdice
             dict_to_tup'''
 
+
 def get_profile(target_word, file):
     """ takes a target word and a tsv-file. iterates through the file and looks for the target word.
     returns a dict with each pair-word as key and its count as a value"""
@@ -26,7 +27,7 @@ def get_profile(target_word, file):
             word_a, word_b = line.split('\t')
             # if word a is the target word:
             word_b = word_b.rstrip('\n')
-            if (word_a == target_word):
+            if word_a == target_word:
                 # updates/
                 try:
                     collocations[word_b] += 1
@@ -34,7 +35,7 @@ def get_profile(target_word, file):
                 except KeyError:
                     collocations[word_b] = 1
             # if word b is the target word:
-            elif (word_b == target_word):
+            elif word_b == target_word:
                 # same as above
                 try:
                     collocations[word_a] += 1
@@ -45,6 +46,8 @@ def get_profile(target_word, file):
         print(results)
         # creates a logdice-sorted version of the results
         logdice_sort = sorted(results, key=lambda x: x[1], reverse=True)
+        print('-----------------------------------------------------')
+        print(target_word.upper(), file)
         print(f'logdice_sort\n{logdice_sort}')
         # creates a frequency-sorted version of the results
         frq_sort = sorted(results, key=lambda x: x[2], reverse=True)
@@ -87,9 +90,14 @@ def get_logdice_and_freq(collocation_dict, file):
     return ld_frq_tup
 
 
-files_n_words = {'off': ('off_profile_prep_news_2014_data.tsv', 'off_profile_prep_news_2020_data.tsv', 'off_profile_prt_news_2014_data.tsv', 'off_profile_prt_news_2020_data.tsv'),
-# 'was': ('a', 'b'),
-'refugee': ('refugee_profile_amod_news_2007_data.tsv', 'refugee_profile_nmod_news_2007_data.tsv')}
+files_n_words = {'off': ('off_profile_prep_news_2014_data.tsv', 'off_profile_prep_news_2020_data.tsv',
+                         'off_profile_prt_news_2014_data.tsv', 'off_profile_prt_news_2020_data.tsv'),
+                 'refugee': ('refugee_profile_amod_news_2007_data.tsv', 'refugee_profile_amod_news_2013_data.tsv',
+                             'refugee_profile_amod_news_2017_data.tsv', 'refugee_profile_nmod_news_2007_data.tsv',
+                             'refugee_profile_nmod_news_2013_data.tsv', 'refugee_profile_nmod_news_2017_data.tsv'),
+                 'be': ('was_profile_aux_news_2020_data.tsv', 'was_profile_aux_web_2020_data.tsv',
+                         'was_profile_auxpass_news_2020_data.tsv', 'was_profile_auxpass_web_2020_data.tsv')}
+
 
 def main():
     for word in files_n_words.keys():
@@ -97,6 +105,7 @@ def main():
             get_profile(word, filename)
     
     pass
+
 
 if __name__ == '__main__':
     main()
