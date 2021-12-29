@@ -96,14 +96,13 @@ files_n_words = {'off': ('off_profile_prep_news_2014_data.tsv', 'off_profile_pre
                              'refugee_profile_amod_news_2017_data.tsv', 'refugee_profile_nmod_news_2007_data.tsv',
                              'refugee_profile_nmod_news_2013_data.tsv', 'refugee_profile_nmod_news_2017_data.tsv'),
                  'be': ('was_profile_aux_news_2020_data.tsv', 'was_profile_aux_web_2020_data.tsv',
-                         'was_profile_auxpass_news_2020_data.tsv', 'was_profile_auxpass_web_2020_data.tsv')}
+                        'was_profile_auxpass_news_2020_data.tsv', 'was_profile_auxpass_web_2020_data.tsv')}
 
 
 def main():
     for word in files_n_words.keys():
         for filename in files_n_words[word]:
             get_profile(word, filename)
-    
     pass
 
 

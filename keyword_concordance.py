@@ -28,10 +28,10 @@ def context(corpus, target_word, construction, n_max):
             sentences.append(doc)
             # print(sentences[i].text)
 
-    print(sentences)
+    #print(sentences)
     random.shuffle(sentences)
     out_sent = []
-    for i in range(int(float(n_max))):
+    for i in range(0, random.randrange(0, int(n_max))):
         try:
             out_sent.append(sentences[i].text)
             print(sentences[i].text)
@@ -39,7 +39,6 @@ def context(corpus, target_word, construction, n_max):
             break
     matcher.remove(f'{target_word}_{construction}')
     return out_sent
-    
 
 
 if __name__ == '__main__':
