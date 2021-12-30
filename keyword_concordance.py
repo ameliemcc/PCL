@@ -47,4 +47,4 @@ if __name__ == '__main__':
 
 
 """command:
-python keyword_concordance.py off_news_2014_corpus.spacy off prep 10"""
+python keyword_concordance.py was_web_2020_corpus.spacy be aux 10"""

@@ -43,15 +43,15 @@ def get_profile(target_word, file):
                     collocations[word_a] = 1
         # from the pair-word count and the file, returns a tuple in the format (paired word, log_dice, freq)
         results = get_logdice_and_freq(collocations, tsv)
-        print(results)
+        #print(results)
         # creates a logdice-sorted version of the results
         logdice_sort = sorted(results, key=lambda x: x[1], reverse=True)
         print('-----------------------------------------------------')
         print(target_word.upper(), file)
-        print(f'logdice_sort\n{logdice_sort}')
+        print(f'sorted by logDice\n{logdice_sort}')
         # creates a frequency-sorted version of the results
         frq_sort = sorted(results, key=lambda x: x[2], reverse=True)
-        print(f'frq_sort:\n{frq_sort}')
+        print(f'sorted by frequency:\n{frq_sort}')
         
 
 def dict_to_tup(dct):
@@ -94,7 +94,9 @@ files_n_words = {'off': ('off_profile_prep_news_2014_data.tsv', 'off_profile_pre
                          'off_profile_prt_news_2014_data.tsv', 'off_profile_prt_news_2020_data.tsv'),
                  'refugee': ('refugee_profile_amod_news_2007_data.tsv', 'refugee_profile_amod_news_2013_data.tsv',
                              'refugee_profile_amod_news_2017_data.tsv', 'refugee_profile_nmod_news_2007_data.tsv',
-                             'refugee_profile_nmod_news_2013_data.tsv', 'refugee_profile_nmod_news_2017_data.tsv'),
+                             'refugee_profile_nmod_news_2013_data.tsv', 'refugee_profile_nmod_news_2017_data.tsv',
+                             'refugee_profile_pobj_news_2007_data.tsv', 'refugee_profile_pobj_news_2013_data.tsv',
+                             'refugee_profile_pobj_news_2017_data.tsv'),
                  'be': ('was_profile_aux_news_2020_data.tsv', 'was_profile_aux_web_2020_data.tsv',
                         'was_profile_auxpass_news_2020_data.tsv', 'was_profile_auxpass_web_2020_data.tsv')}
 
